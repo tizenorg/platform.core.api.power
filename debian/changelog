@@ -1,0 +1,13 @@
+capi-system-power (0.1.0-6) unstable; urgency=low
+
+  * version update
+  * Git: api/power
+  * Tag: capi-system-power_0.1.0-6
+
+ -- Pius Lee <pius.lee@samsung.com>  Thu, 15 Dec 2011 13:52:31 +0900
+
+capi-system-power (0.0.1-1) unstable; urgency=low
+
+  * Initial release.
+
+ -- Pius Lee <pius.lee@samsung.com>  Wed, 07 Dec 2011 12:50:25 +0900
