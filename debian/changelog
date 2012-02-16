@@ -1,3 +1,11 @@
+capi-system-power (0.1.0-7) unstable; urgency=low
+
+  * now, version will be attached to shared object extension.
+  * Git: api/power
+  * Tag: capi-system-power_0.1.0-7
+
+ -- Pius Lee <pius.lee@samsung.com>  Thu, 16 Feb 2012 17:24:45 +0900
+
 capi-system-power (0.1.0-6) unstable; urgency=low
 
   * version update
