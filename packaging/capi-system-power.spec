@@ -6,6 +6,7 @@ Release:    7
 Group:      TO_BE/FILLED_IN
 License:    TO BE FILLED IN
 Source0:    %{name}-%{version}.tar.gz
+Source1001: packaging/capi-system-power.manifest 
 BuildRequires:  cmake
 BuildRequires:  pkgconfig(dlog)
 BuildRequires:  pkgconfig(pmapi)
@@ -33,6 +34,7 @@ Requires: %{name} = %{version}-%{release}
 
 
 %build
+cp %{SOURCE1001} .
 MAJORVER=`echo %{version} | awk 'BEGIN {FS="."}{print $1}'`
 cmake . -DCMAKE_INSTALL_PREFIX=/usr -DFULLVER=%{version} -DMAJORVER=${MAJORVER}
 
@@ -49,9 +51,11 @@ rm -rf %{buildroot}
 
 
 %files
+%manifest capi-system-power.manifest
 %{_libdir}/libcapi-system-power.so.*
 
 %files devel
+%manifest capi-system-power.manifest
 %{_includedir}/system/power.h
 %{_libdir}/pkgconfig/*.pc
 %{_libdir}/libcapi-system-power.so
