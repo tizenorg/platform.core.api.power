@@ -1,12 +1,11 @@
 #sbs-git:slp/api/power capi-system-power 0.1.0 0432661af455f52366bdcd809dc72a00854c763c
 Name:       capi-system-power
-Summary:    A power library in Tizen C API
+Summary:    A power library in SLP C API
 Version: 0.1.0
-Release:    7
+Release:    1
 Group:      TO_BE/FILLED_IN
 License:    TO BE FILLED IN
 Source0:    %{name}-%{version}.tar.gz
-Source1001: packaging/capi-system-power.manifest 
 BuildRequires:  cmake
 BuildRequires:  pkgconfig(dlog)
 BuildRequires:  pkgconfig(pmapi)
@@ -21,7 +20,7 @@ Requires(postun): /sbin/ldconfig
 
 
 %package devel
-Summary:  A power library in Tizen C API (Development)
+Summary:  A power library in SLP C API (Development)
 Group:    TO_BE/FILLED_IN
 Requires: %{name} = %{version}-%{release}
 
@@ -34,7 +33,6 @@ Requires: %{name} = %{version}-%{release}
 
 
 %build
-cp %{SOURCE1001} .
 MAJORVER=`echo %{version} | awk 'BEGIN {FS="."}{print $1}'`
 cmake . -DCMAKE_INSTALL_PREFIX=/usr -DFULLVER=%{version} -DMAJORVER=${MAJORVER}
 
@@ -51,11 +49,9 @@ rm -rf %{buildroot}
 
 
 %files
-%manifest capi-system-power.manifest
 %{_libdir}/libcapi-system-power.so.*
 
 %files devel
-%manifest capi-system-power.manifest
 %{_includedir}/system/power.h
 %{_libdir}/pkgconfig/*.pc
 %{_libdir}/libcapi-system-power.so

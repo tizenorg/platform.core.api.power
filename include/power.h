@@ -22,7 +22,7 @@
 #define __TIZEN_SYSTEM_POWER_H__
 
 
-#include <tizen_error.h>
+#include <tizen.h>
 
 
 #ifdef __cplusplus
@@ -125,7 +125,9 @@ int power_unlock_state(power_state_e power_state);
 
 
 /**
- * @brief Changes the current power state to the normal state.
+ * @brief Changes the current power state to the normal/dim state.
+ *
+ * @param[in] dim       Determine to go to dim state. 
  *
  * @return 0 on success, otherwise a negative error value.
  * @retval #POWER_ERROR_NONE		Successful
@@ -134,7 +136,7 @@ int power_unlock_state(power_state_e power_state);
  * @post The device will be in #POWER_STATE_NORMAL state.
  *
  */
-int power_wakeup(void);
+int power_wakeup(bool dim);
 
 /**
  * @brief Get the current power state.

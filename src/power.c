@@ -67,9 +67,19 @@ int power_unlock_state(power_state_e power_state)
         RETURN_ERR(POWER_ERROR_IO_ERROR);
 }
 
-int power_wakeup()
+int power_wakeup(bool dim)
 {
-    if(pm_change_state(LCD_NORMAL) < 0)
+    int err;
+
+    if(dim == true){
+        err=pm_change_state(LCD_DIM);
+    } else if(dim == false) {
+        err=pm_change_state(LCD_NORMAL);
+    } else {
+        RETURN_ERR(POWER_ERROR_INVALID_PARAMETER);
+    }
+
+    if(err < 0)
         RETURN_ERR(POWER_ERROR_IO_ERROR);
     else
         return POWER_ERROR_NONE;
