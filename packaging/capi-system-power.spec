@@ -2,8 +2,8 @@ Name:       capi-system-power
 Summary:    A power library in SLP C API
 Version:    0.1.1
 Release:    1
-Group:      framework/system
-License:    APLv2
+Group:      System/API
+License:    Apache-2.0
 Source0:    %{name}-%{version}.tar.gz
 Source1001:     capi-system-power.manifest
 BuildRequires:  cmake
@@ -17,10 +17,11 @@ BuildRequires:  pkgconfig(vconf)
 
 %package devel
 Summary:  A power library in SLP C API (Development)
-Group:    TO_BE/FILLED_IN
+Group:    Development/System
 Requires: %{name} = %{version}-%{release}
 
 %description devel
+%devel_desc
 
 %prep
 %setup -q
@@ -42,6 +43,7 @@ make %{?jobs:-j%jobs}
 
 
 %files
+%license LICENSE.APLv2
 %manifest capi-system-power.manifest
 %{_libdir}/libcapi-system-power.so.*
 
