@@ -43,11 +43,13 @@ make %{?jobs:-j%jobs}
 
 
 %files
+%manifest %{name}.manifest
 %license LICENSE.APLv2
 %manifest capi-system-power.manifest
 %{_libdir}/libcapi-system-power.so.*
 
 %files devel
+%manifest %{name}.manifest
 %{_includedir}/system/power.h
 %{_libdir}/pkgconfig/*.pc
 %{_libdir}/libcapi-system-power.so
