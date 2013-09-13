@@ -37,6 +37,9 @@ make %{?jobs:-j%jobs}
 %install
 %make_install
 
+mkdir -p %{buildroot}%{_datadir}/license
+cp LICENSE.APLv2 %{buildroot}%{_datadir}/license/%{name}
+
 %post -p /sbin/ldconfig
 
 %postun -p /sbin/ldconfig
@@ -47,6 +50,7 @@ make %{?jobs:-j%jobs}
 %license LICENSE.APLv2
 %manifest capi-system-power.manifest
 %{_libdir}/libcapi-system-power.so.*
+%{_datadir}/license/%{name}
 
 %files devel
 %manifest %{name}.manifest
