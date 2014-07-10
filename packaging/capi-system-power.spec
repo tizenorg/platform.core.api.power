@@ -1,7 +1,7 @@
 Name:       capi-system-power
 Summary:    A power library in SLP C API
 Version:    0.1.1
-Release:    1
+Release:    0
 Group:      System/API
 License:    Apache-2.0
 Source0:    %{name}-%{version}.tar.gz
@@ -14,6 +14,7 @@ BuildRequires:  pkgconfig(capi-base-common)
 BuildRequires:  pkgconfig(vconf)
 
 %description
+A power library in SLP C API package.
 
 %package devel
 Summary:  A power library in SLP C API (Development)
@@ -21,6 +22,7 @@ Group:    Development/System
 Requires: %{name} = %{version}-%{release}
 
 %description devel
+A power library in SLP C API (Development) package.
 %devel_desc
 
 %prep
@@ -30,9 +32,7 @@ Requires: %{name} = %{version}-%{release}
 cp %{SOURCE1001} .
 MAJORVER=`echo %{version} | awk 'BEGIN {FS="."}{print $1}'`
 %cmake . -DFULLVER=%{version} -DMAJORVER=${MAJORVER}
-
-
-make %{?jobs:-j%jobs}
+%__make %{?jobs:-j%jobs}
 
 %install
 %make_install
@@ -41,11 +41,9 @@ make %{?jobs:-j%jobs}
 
 %postun -p /sbin/ldconfig
 
-
 %files
 %manifest %{name}.manifest
 %license LICENSE.APLv2
-%manifest capi-system-power.manifest
 %{_libdir}/libcapi-system-power.so.*
 
 %files devel
@@ -53,5 +51,3 @@ make %{?jobs:-j%jobs}
 %{_includedir}/system/power.h
 %{_libdir}/pkgconfig/*.pc
 %{_libdir}/libcapi-system-power.so
-
-
