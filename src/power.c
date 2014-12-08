@@ -111,7 +111,7 @@ static void* changed_callback_user_data = NULL;
 
 static void power_changed_inside_cb(keynode_t* key, void* user_data)
 {
-    char* keyname = vconf_keynode_get_name(key);
+    const char* keyname = vconf_keynode_get_name(key);
 
     if(keyname != NULL && changed_callback != NULL && strcmp(keyname, VCONFKEY_PM_STATE) == 0){
         power_state_e state = power_get_state();
